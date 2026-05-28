@@ -1,0 +1,213 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: alphaedge-postgres
+    environment:
+      POSTGRES_DB: alphaedge
+      POSTGRES_USER: alphaedge
+      POSTGRES_PASSWORD: alphaedge_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U alphaedge"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: alphaedge-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Auth Service
+  auth-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: alphaedge-auth-service
+    command: python services/auth-service/main.py
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://alphaedge:alphaedge_password@postgres:5432/alphaedge
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # User Service
+  user-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: alphaedge-user-service
+    command: python services/user-service/main.py
+    ports:
+      - "8001:8001"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://alphaedge:alphaedge_password@postgres:5432/alphaedge
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Analysis Service
+  analysis-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: alphaedge-analysis-service
+    command: python services/analysis-service/main.py
+    ports:
+      - "8002:8002"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://alphaedge:alphaedge_password@postgres:5432/alphaedge
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Market Data Service
+  market-data-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: alphaedge-market-data-service
+    command: python services/market-data-service/main.py
+    ports:
+      - "8003:8003"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://alphaedge:alphaedge_password@postgres:5432/alphaedge
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Portfolio Service
+  portfolio-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: alphaedge-portfolio-service
+    command: python services/portfolio-service/main.py
+    ports:
+      - "8004:8004"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://alphaedge:alphaedge_password@postgres:5432/alphaedge
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Notification Service
+  notification-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: alphaedge-notification-service
+    command: python services/notification-service/main.py
+    ports:
+      - "8005:8005"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://alphaedge:alphaedge_password@postgres:5432/alphaedge
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Subscription Service
+  subscription-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: alphaedge-subscription-service
+    command: python services/subscription-service/main.py
+    ports:
+      - "8006:8006"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://alphaedge:alphaedge_password@postgres:5432/alphaedge
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Analytics Service
+  analytics-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: alphaedge-analytics-service
+    command: python services/analytics-service/main.py
+    ports:
+      - "8007:8007"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://alphaedge:alphaedge_password@postgres:5432/alphaedge
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Backtest Service
+  backtest-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: alphaedge-backtest-service
+    command: python services/backtest-service/main.py
+    ports:
+      - "8008:8008"
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://alphaedge:alphaedge_password@postgres:5432/alphaedge
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  default:
+    name: alphaedge-network

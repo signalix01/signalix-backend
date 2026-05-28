@@ -1,0 +1,27 @@
+Payment Received
+
+Thank you for your payment
+
+Hi {{first_name}},
+
+We've successfully processed your payment. Here's your receipt:
+
+RECEIPT
+Invoice #{{invoice_number}}
+
+Date: {{payment_date}}
+Description: {{plan_name}} - {{billing_period}}
+Payment Method: {{payment_method}}
+Amount Paid: {{amount_paid}}
+
+Download Invoice: {{invoice_url}}
+Go to Dashboard: {{dashboard_url}}
+
+Your subscription will automatically renew on the next billing date. You can manage your subscription or update payment methods anytime from your account settings.
+
+Thank you for being a valued customer,
+The SignalixAI Team
+
+---
+SignalixAI AI | Mumbai, India
+Questions? Contact us at support@signalixai.com

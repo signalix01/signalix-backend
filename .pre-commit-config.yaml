@@ -1,0 +1,95 @@
+# AlphaEdge Backend Pre-commit Configuration
+# See https://pre-commit.com for more information
+
+minimum_pre_commit_version: "3.6.0"
+default_language_version:
+  python: python3.11
+
+repos:
+  # General file checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: ^(migrations/|alembic/)
+      - id: end-of-file-fixer
+        exclude: ^(migrations/|alembic/)
+      - id: check-yaml
+      - id: check-json
+      - id: check-toml
+      - id: check-added-large-files
+        args: ['--maxkb=1000']
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: detect-private-key
+      - id: mixed-line-ending
+        args: ['--fix=lf']
+
+  # Python import sorting
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        name: isort (python)
+        args: ["--profile", "black", "--line-length", "100"]
+        exclude: ^(migrations/|alembic/)
+
+  # Python code formatting with Ruff (replaces Black)
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.1.14
+    hooks:
+      - id: ruff
+        name: ruff (lint)
+        args: [--fix, --exit-non-zero-on-fix]
+        exclude: ^(migrations/|alembic/)
+      - id: ruff-format
+        name: ruff (format)
+        exclude: ^(migrations/|alembic/)
+
+  # Type checking with mypy
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.8.0
+    hooks:
+      - id: mypy
+        additional_dependencies:
+          - types-python-jose
+          - types-passlib
+          - types-redis
+          - pydantic>=2.5.0
+          - sqlalchemy>=2.0.0
+        exclude: ^(tests/|migrations/|alembic/)
+        args: [--ignore-missing-imports, --show-error-codes]
+
+  # Security checks with Bandit
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.7
+    hooks:
+      - id: bandit
+        args: ["-c", "pyproject.toml"]
+        additional_dependencies: ["bandit[toml]"]
+        exclude: ^(tests/|migrations/|alembic/)
+
+  # Check for secrets
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+        exclude: package.lock.json
+
+  # Python docstring coverage
+  - repo: https://github.com/econchick/interrogate
+    rev: 1.5.0
+    hooks:
+      - id: interrogate
+        args: [--verbose, --fail-under=80, --exclude=tests, --exclude=migrations]
+        pass_filenames: false
+
+  # SQLFluff for SQL linting
+  - repo: https://github.com/sqlfluff/sqlfluff
+    rev: 2.3.5
+    hooks:
+      - id: sqlfluff-lint
+        args: [--dialect, "postgres"]
+        files: \.sql$
+        exclude: ^(migrations/|alembic/)

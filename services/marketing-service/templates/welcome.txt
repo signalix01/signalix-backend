@@ -1,0 +1,23 @@
+Welcome to SignalixAI AI
+
+Hi {{first_name}},
+
+Welcome to SignalixAI AI! You now have access to 7 specialist AI agents that analyze markets and deliver clear BUY/SELL/HOLD signals.
+
+Get started in 3 steps:
+
+1. Complete your profile — Set your trading experience and risk preferences
+2. Add instruments to watchlist — Track stocks, F&O, crypto, or forex
+3. Run your first analysis — Get AI-powered signals in minutes
+
+Go to Dashboard: {{dashboard_url}}
+
+Need help? Reply to this email or check our Help Center: {{help_url}}
+
+Happy trading,
+The SignalixAI Team
+
+---
+SignalixAI AI | Mumbai, India
+Unsubscribe: {{unsubscribe_url}}
+Email Preferences: {{preferences_url}}

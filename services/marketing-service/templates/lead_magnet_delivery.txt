@@ -1,0 +1,42 @@
+Your {{lead_magnet_title}} is Ready!
+
+Thanks for downloading our {{lead_magnet_title}}!
+
+This resource will help you with {{topic}} and improve your trading decisions.
+
+DOWNLOAD NOW:
+{{download_url}}
+
+💡 Pro Tip: Save this email for future reference. The download link will remain active.
+
+---
+
+WHAT'S NEXT?
+
+Over the next week, we'll send you:
+- 3 more resources related to {{topic}}
+- Real trader case studies and results
+- An invitation to try our AI-powered trading platform
+
+---
+
+WANT AI-POWERED TRADING SIGNALS NOW?
+
+Get clear BUY/SELL/HOLD signals from 7 specialist AI agents
+
+Start your 7-day free trial:
+{{signup_url}}
+
+---
+
+Questions? Just reply to this email — we're here to help.
+
+Happy trading,
+The SignalixAI Team
+
+---
+
+SignalixAI AI | Mumbai, India
+
+Unsubscribe: {{unsubscribe_url}}
+Email Preferences: {{preferences_url}}

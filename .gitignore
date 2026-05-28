@@ -1,0 +1,33 @@
+# Environments
+.env
+.env.local
+.env.*
+!.env.example
+!.env.production.template
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Caches
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Railway
+.railway
+railway.json

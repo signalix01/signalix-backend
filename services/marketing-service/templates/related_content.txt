@@ -1,0 +1,43 @@
+3 More Resources for {{topic}}
+
+Hi there,
+
+We hope you found the {{lead_magnet_title}} helpful! Here are 3 more resources to help you master {{topic}}:
+
+{{#each related_resources}}
+📄 {{this}}
+   Free download available on our resources page
+{{/each}}
+
+Browse all resources:
+{{dashboard_url}}/resources
+
+---
+
+QUICK TIP: HOW TO USE THESE RESOURCES
+
+The most successful traders we work with follow this pattern:
+
+1. Learn the fundamentals — Use our guides and checklists
+2. Practice with small positions — Test strategies with minimal risk
+3. Use AI to validate — Get second opinions from our AI agents
+4. Track and improve — Review what works and refine your approach
+
+---
+
+"I've been trading F&O for 3 years, but SignalixAI's resources helped me finally understand position sizing properly. My risk management improved dramatically."
+— Rajesh K., Mumbai | Options Trader
+
+---
+
+In 2 days, I'll share a real case study of how traders are using AI to improve their returns.
+
+Talk soon,
+The SignalixAI Team
+
+---
+
+SignalixAI AI | Mumbai, India
+
+Unsubscribe: {{unsubscribe_url}}
+Email Preferences: {{preferences_url}}

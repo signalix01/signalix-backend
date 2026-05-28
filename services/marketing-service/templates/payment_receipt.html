@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Receipt</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8f9fc;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+        .header {
+            background: #1A3C6E;
+            padding: 40px 32px;
+            text-align: center;
+        }
+        .header h1 {
+            color: #ffffff;
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        .header p {
+            color: #93C5FD;
+            margin: 8px 0 0 0;
+            font-size: 16px;
+        }
+        .content {
+            padding: 40px 32px;
+            background: #ffffff;
+        }
+        .content p {
+            color: #4A5568;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0 0 16px 0;
+        }
+        .receipt-box {
+            background: #F8F9FC;
+            border: 2px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .receipt-header {
+            text-align: center;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #E2E8F0;
+            margin-bottom: 16px;
+        }
+        .receipt-header h2 {
+            margin: 0 0 8px 0;
+            color: #0D1117;
+            font-size: 20px;
+        }
+        .receipt-header p {
+            margin: 0;
+            color: #718096;
+            font-size: 14px;
+        }
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .detail-row:last-child {
+            border-bottom: none;
+            padding-top: 16px;
+            margin-top: 8px;
+            border-top: 2px solid #E2E8F0;
+        }
+        .detail-label {
+            color: #718096;
+            font-size: 14px;
+        }
+        .detail-value {
+            color: #0D1117;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .total-row .detail-label,
+        .total-row .detail-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0D1117;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #2E6DB4;
+            color: #ffffff !important;
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            margin: 8px 8px 8px 0;
+            transition: background 0.2s;
+        }
+        .cta-button:hover {
+            background: #1A3C6E;
+        }
+        .cta-button.secondary {
+            background: #F8F9FC;
+            color: #2E6DB4 !important;
+            border: 1px solid #E2E8F0;
+        }
+        .cta-button.secondary:hover {
+            background: #E2E8F0;
+        }
+        .cta-container {
+            text-align: center;
+            margin: 32px 0;
+        }
+        .footer {
+            padding: 32px;
+            background: #F8F9FC;
+            text-align: center;
+            font-size: 13px;
+            color: #718096;
+        }
+        .footer p {
+            margin: 8px 0;
+        }
+        .footer a {
+            color: #2E6DB4;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        @media only screen and (max-width: 600px) {
+            .header {
+                padding: 32px 24px;
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+            .content {
+                padding: 32px 24px;
+            }
+            .receipt-box {
+                padding: 16px;
+            }
+            .detail-row {
+                flex-direction: column;
+                gap: 4px;
+            }
+            .cta-button {
+                display: block;
+                margin: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>Payment Received</h1>
+            <p>Thank you for your payment</p>
+        </div>
+        
+        <div class="content">
+            <p>Hi {{first_name}},</p>
+            
+            <p>We've successfully processed your payment. Here's your receipt:</p>
+            
+            <div class="receipt-box">
+                <div class="receipt-header">
+                    <h2>Receipt</h2>
+                    <p>Invoice #{{invoice_number}}</p>
+                </div>
+                
+                <div class="detail-row">
+                    <span class="detail-label">Date</span>
+                    <span class="detail-value">{{payment_date}}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Description</span>
+                    <span class="detail-value">{{plan_name}} - {{billing_period}}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Payment Method</span>
+                    <span class="detail-value">{{payment_method}}</span>
+                </div>
+                <div class="detail-row total-row">
+                    <span class="detail-label">Amount Paid</span>
+                    <span class="detail-value">{{amount_paid}}</span>
+                </div>
+            </div>
+            
+            <div class="cta-container">
+                <a href="{{invoice_url}}" class="cta-button">Download Invoice</a>
+                <a href="{{dashboard_url}}" class="cta-button secondary">Go to Dashboard</a>
+            </div>
+            
+            <p>Your subscription will automatically renew on the next billing date. You can manage your subscription or update payment methods anytime from your account settings.</p>
+            
+            <p style="margin-top: 32px;">Thank you for being a valued customer,<br><strong>The SignalixAI Team</strong></p>
+        </div>
+        
+        <div class="footer">
+            <p><strong>SignalixAI AI</strong> | Mumbai, India</p>
+            <p>Questions? Contact us at support@signalixai.com</p>
+        </div>
+    </div>
+</body>
+</html>

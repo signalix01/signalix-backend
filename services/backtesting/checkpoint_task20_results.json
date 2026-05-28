@@ -1,0 +1,71 @@
+{
+  "timestamp": "2026-05-07T14:26:50.133178",
+  "checks": {
+    "vectorised_performance": {
+      "passed": true,
+      "elapsed_time": 17.261053562164307,
+      "threshold": 30.0,
+      "total_trades": 9,
+      "total_return_pct": 21.316072251168837,
+      "sharpe_ratio": 1.2408135830135183
+    },
+    "event_driven_costs": {
+      "passed": true,
+      "elapsed_time": 0.5647060871124268,
+      "total_trades": 0,
+      "total_return_pct": 0.0,
+      "sharpe_ratio": 0.0
+    },
+    "return_difference": {
+      "passed": true,
+      "vectorised_return": 21.316072251168837,
+      "event_return": 0.0,
+      "difference": 21.316072251168837,
+      "note": "Event-driven includes transaction costs"
+    },
+    "walk_forward": {
+      "passed": true,
+      "has_train": true,
+      "has_validate": true,
+      "has_test": true,
+      "train_return": 9.912857567687533,
+      "validate_return": 5.376417241762348,
+      "test_return": 4.74333881520835,
+      "consistency_score": 0.0,
+      "is_robust": false
+    },
+    "monte_carlo": {
+      "passed": true,
+      "n_simulations": 10000,
+      "median_return": 21.571671899921107,
+      "p5_return": 5.1877532665656805,
+      "p95_return": 39.466290393091974,
+      "ruin_probability": 0.0,
+      "has_critical_warning": false
+    },
+    "regime_analysis": {
+      "passed": true,
+      "unique_regimes": [
+        "trending_bull",
+        "ranging",
+        "trending_bear"
+      ],
+      "regime_returns": {
+        "trending_bull": 6.825607491003713,
+        "trending_bear": 0.0,
+        "volatile": 0.0,
+        "crisis": 0.0,
+        "ranging": 13.0934681736943
+      },
+      "regime_trade_counts": {
+        "trending_bull": 5,
+        "trending_bear": 0,
+        "volatile": 0,
+        "crisis": 0,
+        "ranging": 4
+      },
+      "overall_recommendation": "Strategy is robust across most market regimes. Suitable for all-weather deployment."
+    }
+  },
+  "all_passed": true
+}

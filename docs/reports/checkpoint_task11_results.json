@@ -1,0 +1,70 @@
+{
+  "compilation_tests": [
+    {
+      "template": "Turtle Breakout (Richard Dennis)",
+      "success": true,
+      "code_length": 2524,
+      "error": null
+    },
+    {
+      "template": "Volatility Mean Reversion (Edward Thorp)",
+      "success": true,
+      "code_length": 3025,
+      "error": null
+    },
+    {
+      "template": "Macro Momentum (Paul Tudor Jones)",
+      "success": true,
+      "code_length": 2697,
+      "error": null
+    },
+    {
+      "template": "SuperTrend + EMA Cross",
+      "success": true,
+      "code_length": 2678,
+      "error": null
+    },
+    {
+      "template": "BankNifty Iron Condor (PR Sundar)",
+      "success": true,
+      "code_length": 3631,
+      "error": null
+    },
+    {
+      "template": "Concentrated Trend (Stanley Druckenmiller)",
+      "success": true,
+      "code_length": 3235,
+      "error": null
+    },
+    {
+      "template": "Value Momentum (Rakesh Jhunjhunwala)",
+      "success": true,
+      "code_length": 3319,
+      "error": null
+    },
+    {
+      "template": "Crypto Accumulation",
+      "success": true,
+      "code_length": 3071,
+      "error": null
+    }
+  ],
+  "validation_test": {
+    "success": true,
+    "execution_time_ms": 2881.49094581604,
+    "message": "Strategy validated successfully in 2881.49ms",
+    "error": null
+  },
+  "network_block_test": {
+    "success": true,
+    "blocked": true,
+    "error": "No module named 'requests'"
+  },
+  "timeout_test": {
+    "success": true,
+    "timed_out": true,
+    "elapsed_seconds": 30.028814792633057,
+    "error": "Strategy execution exceeded 30 second timeout"
+  },
+  "overall_success": true
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 More Resources for {{topic}}</title>
+</head>
+<body style="font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background-color: #F8F9FC;">
+    <!-- Header -->
+    <div style="background: linear-gradient(135deg, #1A3C6E 0%, #2E6DB4 100%); padding: 32px; text-align: center;">
+        <h1 style="color: white; margin: 0; font-size: 24px; font-weight: 600;">3 More Resources for {{topic}}</h1>
+    </div>
+    
+    <!-- Main Content -->
+    <div style="padding: 40px 32px; background: white;">
+        <p style="color: #0D1117; font-size: 16px; line-height: 1.6; margin-bottom: 24px;">
+            Hi there,
+        </p>
+        
+        <p style="color: #4A5568; font-size: 16px; line-height: 1.6; margin-bottom: 32px;">
+            We hope you found the <strong>{{lead_magnet_title}}</strong> helpful! Here are 3 more resources to help you master {{topic}}:
+        </p>
+        
+        <!-- Resource Cards -->
+        <div style="margin-bottom: 24px;">
+            {{#each related_resources}}
+            <div style="padding: 20px; background: #F8F9FC; border-left: 4px solid #2E6DB4; border-radius: 4px; margin-bottom: 16px;">
+                <h3 style="color: #0D1117; font-size: 18px; font-weight: 600; margin: 0 0 8px 0;">
+                    📄 {{this}}
+                </h3>
+                <p style="color: #4A5568; font-size: 14px; line-height: 1.6; margin: 0;">
+                    Free download available on our resources page
+                </p>
+            </div>
+            {{/each}}
+        </div>
+        
+        <!-- CTA Button -->
+        <div style="text-align: center; margin: 40px 0;">
+            <a href="{{dashboard_url}}/resources" style="background: #2E6DB4; color: white; padding: 16px 40px; text-decoration: none; border-radius: 8px; display: inline-block; font-weight: 600; font-size: 16px;">
+                Browse All Resources
+            </a>
+        </div>
+        
+        <!-- Educational Content -->
+        <div style="margin-top: 40px; padding-top: 32px; border-top: 1px solid #E2E8F0;">
+            <h2 style="color: #0D1117; font-size: 20px; font-weight: 600; margin-bottom: 16px;">
+                Quick Tip: How to Use These Resources
+            </h2>
+            
+            <p style="color: #4A5568; font-size: 16px; line-height: 1.6; margin-bottom: 16px;">
+                The most successful traders we work with follow this pattern:
+            </p>
+            
+            <ol style="color: #4A5568; font-size: 16px; line-height: 1.8; margin-bottom: 24px;">
+                <li><strong>Learn the fundamentals</strong> — Use our guides and checklists</li>
+                <li><strong>Practice with small positions</strong> — Test strategies with minimal risk</li>
+                <li><strong>Use AI to validate</strong> — Get second opinions from our AI agents</li>
+                <li><strong>Track and improve</strong> — Review what works and refine your approach</li>
+            </ol>
+        </div>
+        
+        <!-- Social Proof -->
+        <div style="margin-top: 40px; padding: 24px; background: #F8F9FC; border-radius: 8px;">
+            <p style="color: #4A5568; font-size: 14px; line-height: 1.6; margin: 0; font-style: italic;">
+                "I've been trading F&O for 3 years, but SignalixAI's resources helped me finally understand position sizing properly. My risk management improved dramatically."
+            </p>
+            <p style="color: #718096; font-size: 12px; margin-top: 12px; margin-bottom: 0;">
+                — Rajesh K., Mumbai | Options Trader
+            </p>
+        </div>
+        
+        <p style="color: #4A5568; font-size: 14px; line-height: 1.6; margin-top: 32px;">
+            In 2 days, I'll share a real case study of how traders are using AI to improve their returns.
+        </p>
+        
+        <p style="color: #4A5568; font-size: 14px; line-height: 1.6; margin-top: 16px;">
+            Talk soon,<br>
+            <strong>The SignalixAI Team</strong>
+        </p>
+    </div>
+    
+    <!-- Footer -->
+    <div style="padding: 24px 32px; background: #F8F9FC; text-align: center; font-size: 12px; color: #718096;">
+        <p style="margin: 8px 0;">SignalixAI AI | Mumbai, India</p>
+        <p style="margin: 8px 0;">
+            <a href="{{unsubscribe_url}}" style="color: #718096; text-decoration: underline;">Unsubscribe</a> | 
+            <a href="{{preferences_url}}" style="color: #718096; text-decoration: underline;">Email Preferences</a>
+        </p>
+    </div>
+</body>
+</html>

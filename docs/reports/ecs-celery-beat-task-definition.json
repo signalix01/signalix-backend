@@ -1,0 +1,66 @@
+{
+  "family": "signalix-celery-beat",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "512",
+  "memory": "1024",
+  "executionRoleArn": "arn:aws:iam::ACCOUNT_ID:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::ACCOUNT_ID:role/ecsTaskRole",
+  "containerDefinitions": [
+    {
+      "name": "celery-beat",
+      "image": "ACCOUNT_ID.dkr.ecr.REGION.amazonaws.com/signalix-backend:latest",
+      "essential": true,
+      "command": [
+        "celery",
+        "-A",
+        "celery_config.celery_app",
+        "beat",
+        "--loglevel=info",
+        "--scheduler=celery.beat:PersistentScheduler"
+      ],
+      "environment": [
+        {
+          "name": "ENVIRONMENT",
+          "value": "production"
+        },
+        {
+          "name": "PYTHONUNBUFFERED",
+          "value": "1"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "DATABASE_URL",
+          "valueFrom": "arn:aws:secretsmanager:REGION:ACCOUNT_ID:secret:signalix/database-url"
+        },
+        {
+          "name": "CELERY_BROKER_URL",
+          "valueFrom": "arn:aws:secretsmanager:REGION:ACCOUNT_ID:secret:signalix/celery-broker-url"
+        },
+        {
+          "name": "CELERY_RESULT_BACKEND",
+          "valueFrom": "arn:aws:secretsmanager:REGION:ACCOUNT_ID:secret:signalix/celery-result-backend"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/signalix-celery-beat",
+          "awslogs-region": "REGION",
+          "awslogs-stream-prefix": "celery-beat"
+        }
+      },
+      "healthCheck": {
+        "command": [
+          "CMD-SHELL",
+          "celery -A celery_config.celery_app inspect ping || exit 1"
+        ],
+        "interval": 30,
+        "timeout": 5,
+        "retries": 3,
+        "startPeriod": 60
+      }
+    }
+  ]
+}

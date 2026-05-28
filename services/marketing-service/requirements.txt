@@ -1,0 +1,27 @@
+# Marketing Service Dependencies
+
+# Core Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Email Service
+sendgrid==6.11.0
+
+# Task Queue
+rq==1.15.1
+rq-scheduler==0.13.1
+redis==5.0.1
+
+# Database
+sqlalchemy==2.0.23
+asyncpg==0.29.0
+alembic==1.13.0
+
+# Utilities
+python-dotenv==1.0.0
+tenacity==8.2.3
+
+# Logging
+python-json-logger==2.0.7

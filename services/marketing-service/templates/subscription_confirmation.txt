@@ -1,0 +1,27 @@
+Subscription Confirmed!
+
+Welcome to {{plan_name}}
+
+Hi {{first_name}},
+
+Thank you for subscribing to SignalixAI AI {{plan_name}}! Your subscription is now active and you have full access to all premium features.
+
+SUBSCRIPTION DETAILS:
+- Plan: {{plan_name}}
+- Price: {{plan_price}}
+- Billing Period: {{billing_period}}
+- Next Billing Date: {{next_billing_date}}
+
+What's included: Unlimited AI analyses, advanced risk management, options intelligence, priority support, and more.
+
+Go to Dashboard: {{dashboard_url}}
+
+You can manage your subscription, update payment methods, or view invoices anytime from your account settings:
+{{manage_subscription_url}}
+
+Happy trading,
+The SignalixAI Team
+
+---
+SignalixAI AI | Mumbai, India
+Manage Subscription: {{manage_subscription_url}}

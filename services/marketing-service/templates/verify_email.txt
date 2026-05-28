@@ -1,0 +1,12 @@
+Verify Your Email
+
+Enter this code to verify your email address:
+
+{{verification_code}}
+
+This code expires in 15 minutes.
+
+Didn't request this? You can safely ignore this email.
+
+---
+SignalixAI AI | Mumbai, India

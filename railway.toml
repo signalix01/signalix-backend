@@ -1,0 +1,107 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+numReplicas = 1
+sleepApplication = false
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+healthcheckPath = "/health"
+healthcheckTimeout = 100
+
+[[services]]
+name = "auth-service"
+command = "python services/auth-service/main.py"
+
+[[services.healthcheck]]
+path = "/health"
+timeout = 100
+
+[[services]]
+name = "user-service"
+command = "python services/user-service/main.py"
+
+[[services.healthcheck]]
+path = "/health"
+timeout = 100
+
+[[services]]
+name = "analysis-service"
+command = "python services/analysis-service/main.py"
+
+[[services.healthcheck]]
+path = "/health"
+timeout = 300
+
+[[services]]
+name = "market-data-service"
+command = "python services/market-data-service/main.py"
+
+[[services.healthcheck]]
+path = "/health"
+timeout = 100
+
+[[services]]
+name = "portfolio-service"
+command = "python services/portfolio-service/main.py"
+
+[[services.healthcheck]]
+path = "/health"
+timeout = 100
+
+[[services]]
+name = "notification-service"
+command = "python services/notification-service/main.py"
+
+[[services.healthcheck]]
+path = "/health"
+timeout = 100
+
+[[services]]
+name = "subscription-service"
+command = "python services/subscription-service/main.py"
+
+[[services.healthcheck]]
+path = "/health"
+timeout = 100
+
+[[services]]
+name = "analytics-service"
+command = "python services/analytics-service/main.py"
+
+[[services.healthcheck]]
+path = "/health"
+timeout = 100
+
+[[services]]
+name = "backtest-service"
+command = "python services/backtest-service/main.py"
+
+[[services.healthcheck]]
+path = "/health"
+timeout = 100
+
+[[services]]
+name = "risk-service"
+command = "python services/risk-service/main.py"
+
+[[services.healthcheck]]
+path = "/health"
+timeout = 100
+
+[[services]]
+name = "execution-service"
+command = "python services/execution-service/main.py"
+
+[[services.healthcheck]]
+path = "/health"
+timeout = 100
+
+[[services]]
+name = "pricing-service"
+command = "python services/pricing-service/main.py"
+
+[[services.healthcheck]]
+path = "/health"
+timeout = 100

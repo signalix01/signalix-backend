@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed - SignalixAI AI</title>
+</head>
+<body style="font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; background-color: #F8F9FC;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #F8F9FC; padding: 40px 20px;">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #FFFFFF; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background: linear-gradient(135deg, #1A3C6E 0%, #2E6DB4 100%); padding: 40px 32px; text-align: center;">
+                            <h1 style="color: #FFFFFF; margin: 0; font-size: 28px; font-weight: 700;">Payment Failed</h1>
+                        </td>
+                    </tr>
+                    
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 40px 32px;">
+                            <p style="color: #0D1117; font-size: 16px; line-height: 1.6; margin: 0 0 24px 0;">
+                                Hi there,
+                            </p>
+                            
+                            <p style="color: #0D1117; font-size: 16px; line-height: 1.6; margin: 0 0 24px 0;">
+                                We tried to process your payment of <strong>{{currency}} {{amount}}</strong> for your SignalixAI AI subscription, but it didn't go through.
+                            </p>
+                            
+                            <div style="background-color: #FEF3C7; border-left: 4px solid #F59E0B; padding: 16px; margin: 24px 0; border-radius: 4px;">
+                                <p style="color: #92400E; font-size: 14px; line-height: 1.5; margin: 0;">
+                                    <strong>Don't worry!</strong> We'll automatically retry your payment on <strong>{{retry_date}}</strong>. Your subscription remains active until then.
+                                </p>
+                            </div>
+                            
+                            <h3 style="color: #0D1117; font-size: 18px; font-weight: 600; margin: 32px 0 16px 0;">
+                                What you can do:
+                            </h3>
+                            
+                            <ul style="color: #4A5568; font-size: 15px; line-height: 1.8; margin: 0 0 24px 0; padding-left: 24px;">
+                                <li>Update your payment method to avoid service interruption</li>
+                                <li>Check if your card has sufficient funds</li>
+                                <li>Verify your card hasn't expired</li>
+                                <li>Contact your bank if the issue persists</li>
+                            </ul>
+                            
+                            <!-- CTA Button -->
+                            <table width="100%" cellpadding="0" cellspacing="0" style="margin: 32px 0;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="{{update_card_url}}" style="display: inline-block; background-color: #2E6DB4; color: #FFFFFF; text-decoration: none; padding: 16px 32px; border-radius: 8px; font-size: 16px; font-weight: 600;">
+                                            Update Payment Method
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <p style="color: #4A5568; font-size: 14px; line-height: 1.6; margin: 24px 0 0 0;">
+                                If you have any questions or need help, please reply to this email or contact our support team.
+                            </p>
+                            
+                            <p style="color: #0D1117; font-size: 16px; line-height: 1.6; margin: 24px 0 0 0;">
+                                Best regards,<br>
+                                <strong>The SignalixAI Team</strong>
+                            </p>
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #F8F9FC; padding: 24px 32px; text-align: center; border-top: 1px solid #E2E8F0;">
+                            <p style="color: #4A5568; font-size: 12px; line-height: 1.5; margin: 0 0 8px 0;">
+                                SignalixAI AI | Mumbai, India
+                            </p>
+                            <p style="color: #4A5568; font-size: 12px; line-height: 1.5; margin: 0;">
+                                <a href="{{unsubscribe_url}}" style="color: #2E6DB4; text-decoration: none;">Unsubscribe</a> | 
+                                <a href="{{preferences_url}}" style="color: #2E6DB4; text-decoration: none;">Email Preferences</a>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

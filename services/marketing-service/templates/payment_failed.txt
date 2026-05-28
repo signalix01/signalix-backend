@@ -1,0 +1,26 @@
+Payment Failed - SignalixAI AI
+
+Hi there,
+
+We tried to process your payment of {{currency}} {{amount}} for your SignalixAI AI subscription, but it didn't go through.
+
+Don't worry! We'll automatically retry your payment on {{retry_date}}. Your subscription remains active until then.
+
+What you can do:
+- Update your payment method to avoid service interruption
+- Check if your card has sufficient funds
+- Verify your card hasn't expired
+- Contact your bank if the issue persists
+
+Update your payment method here:
+{{update_card_url}}
+
+If you have any questions or need help, please reply to this email or contact our support team.
+
+Best regards,
+The SignalixAI Team
+
+---
+SignalixAI AI | Mumbai, India
+Unsubscribe: {{unsubscribe_url}}
+Email Preferences: {{preferences_url}}

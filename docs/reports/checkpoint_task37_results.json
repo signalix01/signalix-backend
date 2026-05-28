@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-05-07T15:40:15.469177",
+  "tests": {
+    "ZScore Detector": {
+      "passed": true,
+      "details": "Detected 38 price anomalies and 2 volume anomalies",
+      "timestamp": "2026-05-07T15:40:15.686166"
+    },
+    "CUSUM Detector": {
+      "passed": true,
+      "details": "Detected 203 regime changes/structural breaks",
+      "timestamp": "2026-05-07T15:40:15.822247"
+    },
+    "Isolation Forest Detector": {
+      "passed": false,
+      "details": "Exception: single positional indexer is out-of-bounds",
+      "timestamp": "2026-05-07T15:40:25.859118"
+    },
+    "Flash Detector": {
+      "passed": true,
+      "details": "Detected 1 flash crash/rally events",
+      "timestamp": "2026-05-07T15:40:26.042211"
+    },
+    "Minimum Anomaly Threshold": {
+      "passed": true,
+      "details": "Detected 244 anomalies (requirement: >= 3)",
+      "timestamp": "2026-05-07T15:40:26.042211"
+    },
+    "India Equity Whale Tracker": {
+      "passed": true,
+      "details": "Fetched 0 block deals, 0 bulk deals, 0 FII/DII events",
+      "timestamp": "2026-05-07T15:40:30.387919"
+    },
+    "Crypto Whale Tracker": {
+      "passed": true,
+      "details": "Fetched 0 data points from Glassnode API",
+      "timestamp": "2026-05-07T15:40:30.407098"
+    },
+    "Deduplication Service": {
+      "passed": false,
+      "details": "First event: suppressed, Duplicate: suppressed, Higher severity: suppressed",
+      "timestamp": "2026-05-07T15:40:32.367766"
+    }
+  },
+  "summary": {
+    "total_tests": 8,
+    "passed": 6,
+    "failed": 2
+  }
+}

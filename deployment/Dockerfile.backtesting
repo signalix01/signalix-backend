@@ -1,0 +1,54 @@
+# Dockerfile for Backtesting Service
+FROM python:3.12-slim
+
+LABEL maintainer="support@signalix.com"
+LABEL service="backtesting"
+LABEL version="1.0.0"
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies including TA-Lib
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    make \
+    wget \
+    postgresql-client \
+    libta-lib-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install TA-Lib from source
+RUN wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz && \
+    tar -xzf ta-lib-0.4.0-src.tar.gz && \
+    cd ta-lib/ && \
+    ./configure --prefix=/usr && \
+    make && \
+    make install && \
+    cd .. && \
+    rm -rf ta-lib ta-lib-0.4.0-src.tar.gz
+
+# Copy requirements
+COPY requirements.txt .
+
+# Install Python dependencies including vectorbt
+RUN pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir TA-Lib vectorbt
+
+# Copy application code
+COPY . .
+
+# Create non-root user
+RUN useradd -m -u 1000 appuser && \
+    chown -R appuser:appuser /app
+USER appuser
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+    CMD python -c "import requests; requests.get('http://localhost:8001/health')" || exit 1
+
+# Expose port
+EXPOSE 8001
+
+# Run backtesting service
+CMD ["uvicorn", "services.backtesting.main:app", "--host", "0.0.0.0", "--port", "8001", "--workers", "4"]

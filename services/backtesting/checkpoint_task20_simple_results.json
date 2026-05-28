@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-05-07T14:14:57.982935",
+  "checks": {
+    "event_driven": {
+      "passed": true,
+      "elapsed_time": 0.7407889366149902,
+      "total_trades": 0,
+      "total_return_pct": 0.0,
+      "sharpe_ratio": 0.0
+    },
+    "walk_forward": {
+      "passed": true,
+      "train_return": 0.0,
+      "validate_return": 0.0,
+      "test_return": 0.0,
+      "consistency_score": 0.0,
+      "is_robust": false
+    },
+    "monte_carlo": {
+      "passed": false,
+      "reason": "No trades available"
+    },
+    "regime_analysis": {
+      "passed": true,
+      "unique_regimes": [
+        "trending_bull",
+        "ranging",
+        "trending_bear"
+      ],
+      "regime_returns": {}
+    }
+  },
+  "all_passed": false
+}
